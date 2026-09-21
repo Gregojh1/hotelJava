@@ -35,36 +35,36 @@ public class Main {
                 habitacionNew.setEstado(false);
                 em.persist(habitacionNew);
 
-                Cliente clienteNew = new Cliente();
-                clienteNew.setApellido("nombre" + i);
-                clienteNew.setNombre("apellido" + i);
-                clienteNew.setMembresia(membresia);
-                clienteNew.setNroDocumento(1000000 + i);
-                clienteNew.setEmail("nombreapellido" + i +"@mail.com" );
-                clienteNew.setTipoDocumento("dni");
-                em.persist(clienteNew);
+                // Cliente clienteNew = new Cliente();
+                // clienteNew.setApellido("nombre" + i);
+                // clienteNew.setNombre("apellido" + i);
+                // clienteNew.setMembresia(membresia);
+                // clienteNew.setNroDocumento(1000000 + i);
+                // clienteNew.setEmail("nombreapellido" + i +"@mail.com" );
+                // clienteNew.setTipoDocumento("dni");
+                // em.persist(clienteNew);
 
-                Reservas reservaNew = new Reservas();
-                reservaNew.setCajero(cajero);
-                reservaNew.setEstado("activa");
-                reservaNew.setCliente(clienteNew);
-                reservaNew.setHabitacion(habitacionNew);
-                reservaNew.setMontoTotal(350.00);
-                reservaNew.setFechaInicio(LocalDateTime.now().plusDays(2).withHour(9).withMinute(0).withSecond(0));
-                reservaNew.setFechaFin(LocalDateTime.now().plusDays(9).withHour(12).withMinute(0).withSecond(0));
-                em.persist(reservaNew);
-            }
+            //     Reservas reservaNew = new Reservas();
+            //     reservaNew.setCajero(cajero);
+            //     reservaNew.setEstado("activa");
+            //     reservaNew.setCliente(clienteNew);
+            //     reservaNew.setHabitacion(habitacionNew);
+            //     reservaNew.setMontoTotal(350.00);
+            //     reservaNew.setFechaInicio(LocalDateTime.now().plusDays(2).withHour(9).withMinute(0).withSecond(0));
+            //     reservaNew.setFechaFin(LocalDateTime.now().plusDays(9).withHour(12).withMinute(0).withSecond(0));
+            //     em.persist(reservaNew);
+            // }
 
-            for(int i = 1; i <=1;i+=1){
+            // for(int i = 1; i <=1;i+=1){
 
-                Cliente clienteSin = new Cliente();
-                clienteSin.setApellido("reserva" + i);
-                clienteSin.setNombre("sin" + i);
-                clienteSin.setMembresia(membresiaComun);
-                clienteSin.setNroDocumento(2000000 + i);
-                clienteSin.setEmail("sinreserva" + i +"@mail.com" );
-                clienteSin.setTipoDocumento("dni");
-                em.persist(clienteSin);
+            //     Cliente clienteSin = new Cliente();
+            //     clienteSin.setApellido("reserva" + i);
+            //     clienteSin.setNombre("sin" + i);
+            //     clienteSin.setMembresia(membresiaComun);
+            //     clienteSin.setNroDocumento(2000000 + i);
+            //     clienteSin.setEmail("sinreserva" + i +"@mail.com" );
+            //     clienteSin.setTipoDocumento("dni");
+            //     em.persist(clienteSin);
 
             }
 
