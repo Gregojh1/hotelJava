@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+.lista{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.box_barra{
+    padding: 10px;
+    background-color: aquamarine;
+}
+.box_form{
+    display: flex;
+    justify-content: center;
+
+    padding-bottom: 3cm;
+
+    border: 3px solid;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+*button{
+    background-color: aquamarine;
+    width: 20%;
+    margin-top: 3cm;
+}
+

@@ -3,11 +3,13 @@ package com.hotel.persistence;
 import java.util.List;
 
 import com.hotel.model.entity.Cliente;
+import com.hotel.model.entity.Membresia;
 import com.hotel.util.jpaUtil;
 
 import jakarta.persistence.EntityManager;
 
 public class CrudCliente extends Crud<Cliente, Integer>{
+    CrudMembresia crudmembresia = new CrudMembresia();
 
     private EntityManager em = jpaUtil.getEntityManager();
     @Override
@@ -39,9 +41,14 @@ public class CrudCliente extends Crud<Cliente, Integer>{
 
     @Override
     public void save(Cliente entity) {
+        em.getTransaction().begin();
         Integer id = entity.getId();
         if (id==null){
+            Membresia membresiaSave = crudmembresia.getById(3);
+            entity.setMembresia(membresiaSave);
             em.persist(entity);
+            em.getTransaction().commit();
+            System.out.println("POR AQUI PASE");
         }else{
             Cliente cliente = getById(id);
             if(cliente !=null){
@@ -52,11 +59,11 @@ public class CrudCliente extends Crud<Cliente, Integer>{
                 cliente.setTipoDocumento(entity.getTipoDocumento());
                 cliente.setNroDocumento(entity.getNroDocumento());
                 em.merge(cliente);
+                em.getTransaction().commit();
+                System.out.println("POR AQUI PASE ELSE");
 
             }
         }
-
-        super.save(entity);
     }
 
     

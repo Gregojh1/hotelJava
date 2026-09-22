@@ -12,8 +12,10 @@ public class ClienteServ {
         CrudCliente clientecrud = new CrudCliente();
         Membresia membresia = cliente.getMembresia();
 
-        if (membresia.getTipoMembresia() == null) {
+        if (membresia == null) {
+            membresia = new Membresia();
             membresia.setTipoMembresia("comun");
+            
 
             cliente.setMembresia(membresia);
 
@@ -23,6 +25,7 @@ public class ClienteServ {
                 membresia.setTipoMembresia("comun");
                 cliente.setMembresia(membresia);
         }
+        clientecrud.save(cliente);
 
         return  null;
     }
