@@ -1,4 +1,4 @@
-package com.hotel.persistence;
+package com.hotel.persistence.repository;
 
 import java.util.List;
 

@@ -2,54 +2,58 @@ package com.hotel.persistence;
 
 import java.util.List;
 
-import com.hotel.model.entity.Habitacion;
+import com.hotel.persistence.entity.Habitacion;
+import com.hotel.persistence.repository.Crud;
 import com.hotel.util.jpaUtil;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 
-public class CrudHabitacion extends Crud<Habitacion, Integer> {
+public class CrudHabitacion extends Crud<Habitacion, Short> {
 
-    EntityManager em = jpaUtil.getEntityManager();
+    private EntityManager manager;
+   
+
+    public CrudHabitacion(EntityManager manager) {
+        this. manager = manager;
+    }
 
     @Override
-    public void deleteE(Integer id) {
-        Habitacion habitacion = getById(id);
-        if (habitacion != null) {
-            em.remove(habitacion);
-            System.out.println("la habitacion fue borrada con exito");
-        }
-        throw new RuntimeException("habitacion no existe ");
-
+    public void deleteE(Short id) {
+        // TODO Auto-generated method stub
+        super.deleteE(id);
     }
 
     @Override
     public List<Habitacion> getAll() {
-        List<Habitacion> habitaciones = em.createQuery("Select c from Habitacion c", Habitacion.class).getResultList();
-
-        return habitaciones;
-    }
-
-    @Override
-    public Habitacion getById(Integer id) {
-        Habitacion habitacion = em.find(Habitacion.class, id);
-        if (habitacion != null) {
-            return habitacion;
-        }
-        throw new RuntimeException("habitacion no encontrada");
+        // TODO Auto-generated method stub
+         return manager.createQuery("SELECT h FROM Habitacion h", Habitacion.class).getResultList();
     }
 
     @Override
     public void save(Habitacion entity) {
-        Integer id = entity.getId();
-        if (id != null) {
-            Habitacion habitacion = getById(id);
-            habitacion.setNroHabitacion(entity.getNroHabitacion());
-            habitacion.setPrecioNoche(entity.getPrecioNoche());
-            habitacion.setEstado(entity.getEstado());
-            ;
-            habitacion.setCapacidad(entity.getCapacidad());
+        try {
+             manager.persist(entity);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al guardar", e);
         }
-        em.persist(entity);
+       
+    }
+
+    public void update(Habitacion entity) {
+        try {
+            manager.merge(entity);
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+            throw new RuntimeException("Error al actualizar", e);
+        }
+        
+    }
+
+    @Override
+    public Habitacion getById(Short id) {
+        Habitacion habitacionBD = manager.find(Habitacion.class, id);
+        return habitacionBD;
     }
 
 }

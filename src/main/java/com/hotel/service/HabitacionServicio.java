@@ -1,0 +1,54 @@
+package com.hotel.service;
+
+import java.util.List;
+
+import com.hotel.persistence.CrudHabitacion;
+import com.hotel.persistence.entity.Habitacion;
+import com.hotel.util.jpaUtil;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+
+public class HabitacionServicio {
+
+    private EntityManager manager;
+    private EntityTransaction transaction;
+
+    private CrudHabitacion repository;
+
+    public HabitacionServicio() {
+        this.manager = jpaUtil.getEntityManager();
+        repository = new CrudHabitacion(manager);
+    }
+
+    public void saveHabitaciones(Habitacion habitacion) {
+        transaction = manager.getTransaction();
+        repository.save(habitacion);
+        transaction.commit();
+    }
+
+
+    
+    public void updateHabitaciones(Habitacion habitacion) {
+        transaction = manager.getTransaction();
+        Habitacion habitacionBD = getById(habitacion.getNumeroHabitacion());
+        if (habitacionBD == null) {
+            throw new RuntimeException("habitacion no encontrada por el id: " + habitacion.getNumeroHabitacion());
+        }
+        habitacionBD.setCapacidad(habitacion.getCapacidad());
+        habitacionBD.setEstado(habitacion.getEstado());
+        habitacionBD.setPrecio(habitacion.getPrecio());
+        repository.update(habitacionBD);
+        transaction.commit();
+    }
+
+    public List<Habitacion> getAll(){
+        return repository.getAll();
+    }
+
+    public Habitacion getById(Short id){
+        return repository.getById(id);
+
+    }
+
+}

@@ -1,39 +1,8 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-
-}
-.lista{
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    list-style: none;
-}
-
-.box_barra{
-    padding: 10px;
-    background-color: aquamarine;
-}
-.box_form{
-    display: flex;
-    justify-content: center;
-
-    padding-bottom: 3cm;
-
-    border: 3px solid;
-}
-
-.form{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-}
-
-*button{
-    background-color: aquamarine;
-    width: 20%;
-    margin-top: 3cm;
-}
-
+header{
+        background-image: url("https://images-ext-1.discordapp.net/external/N73jhJ-IESgBQvOl8xsSNRwgnBC5J155PdYwpwLIL-k/%3Fresize%3D980%3A%2A/https/hips.hearstapps.com/hmg-prod/images/la-redoute-interieurs-dormitorios-dia-suen-o-jpg-1584103542.jpg?format=webp&width=768&height=1024");
+        height: 400px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
