@@ -25,7 +25,7 @@ public class DetalleReserva {
     private Integer cantidadPersonas;
 
     @ManyToOne
-    @JoinColumn(name = "id_habitacion", referencedColumnName = "id")
+    @JoinColumn(name = "id_habitacion", referencedColumnName = "numero_habitacion")
     private Habitacion habitacion;
 
     @ManyToOne

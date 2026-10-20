@@ -15,7 +15,7 @@
                         <a class="nav-link" href="#">Habitaciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Huespedes</a>
+                        <a class="nav-link" href="huesped.jsp">Huespedes</a>
                     </li>
                 </ul>
 

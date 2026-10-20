@@ -17,6 +17,7 @@ import jakarta.persistence.Table;
 @Table(name = "reserva")
 public class Reserva {
     @Id
+    @Column (name = "cod_reserva")
     private String codReserva;
     @Column(name = "precio_final", nullable = false, precision = 10, scale = 2)
     private BigDecimal precioFinal;

@@ -16,9 +16,9 @@
 
         <body>
 
-            <jsp:include page="componentes/nav.jsp">
-                <!--<jsp:param name="nombre" value="Carlos" />-->
-            </jsp:include>
+            <jsp:include page="componentes/nav.jsp"/>
+                <%--<jsp:param name="nombre" value="Carlos" />--%>
+            <%--</jsp:include>--%>
 
 
 

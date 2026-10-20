@@ -8,23 +8,26 @@ import com.hotel.util.jpaUtil;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 
 public class HabitacionServicio {
 
-    private EntityManager manager;
+    private EntityManager manager = Persistence.createEntityManagerFactory("application").createEntityManager();
     private EntityTransaction transaction;
 
     private CrudHabitacion repository;
 
     public HabitacionServicio() {
-        this.manager = jpaUtil.getEntityManager();
+        
         repository = new CrudHabitacion(manager);
     }
 
     public void saveHabitaciones(Habitacion habitacion) {
         transaction = manager.getTransaction();
+        transaction.begin();
         repository.save(habitacion);
         transaction.commit();
+        
     }
 
 

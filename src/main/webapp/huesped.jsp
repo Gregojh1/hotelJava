@@ -1,0 +1,82 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>registro huespedes</title>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+                integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+                crossorigin="anonymous">
+            <link rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
+
+        </head>
+
+        <body>
+            <jsp:include page="componentes/nav.jsp" />
+            <%--<jsp:param name="nombre" value="Carlos" /> --%>
+           
+
+            <div class="container">
+                <form action="huesped?accion=guarda" class="d-flex g-2 flex-column" method="post">
+                    <div class="mb-3">
+                        <label for="FormControlInput1" class="form-label">nombre</label>
+                        <input type="text" class="form-control" id="namehuesped" placeholder="juan" name="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="FormControlInput2" class="form-label">apellido</label>
+                        <input type="text" class="form-control" id="namehuesped" placeholder="ramirez" name="apellido">
+                    </div>
+                    <div class="mb-3">
+                        <label for="FormControlInput3" class="form-label">email</label>
+                        <input type="email" class="form-control" id="email" placeholder="juan@gmail.com" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="FormControlInput4" class="form-label">numero de documento</label>
+                        <input type="number" class="form-control" id="numero_documento" placeholder="95683992"
+                            name="numero_documento">
+                    </div>
+                    <div class="mb-3">
+                        <label for="FormControlInput5" class="form-label">tipo de documento</label>
+                        <input type="text" class="form-control" id="tipo_documento" placeholder="dni"
+                            name="tipo_documento">
+                    </div>
+                    <div class="mb-3">
+                        <label for="FormControlInput6" class="form-label">rol</label>
+                        <input type="text" class="form-control" id="rol" placeholder="rol" name="rol">
+                    </div>
+                    <div class="mb-3">
+                        <label for="FormControlInput7" class="form-label">password</label>
+                        <input type="text" class="form-control" id="passwordhuesped" placeholder="Mor*2021"
+                            name="password">
+
+                        <div class="mb-3">
+                            <label for="FormControlInput8" class="form-label">delete</label>
+                            <input type="text" class="form-control" id="deletehuesped" placeholder="true/false"
+                                name="delete">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="FormControlInput8" class="form-label">Fecha de nacimiento</label>
+                            <input type="datetime" class="form-control" id="nacimientohuesped" placeholder="08/06/1997"
+                                name="fecha_nacimiento">
+                        </div>
+                </form>
+
+                <div>
+                    <button type="submit" class="btn btn-outline-success w-100">registra habitacion</button>
+                </div>
+            </div>
+
+
+
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+                crossorigin="anonymous"></script>
+        </body>
+
+        </html>

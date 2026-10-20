@@ -1,5 +1,6 @@
 package com.hotel.persistence.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class Huesped {
     @Column(name = "tipo_documento")
     private String tipoDocumento;
     @Column(name = "fecha_nacimiento")
-    private LocalDateTime fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private String rol;
     private Boolean delete;
     private String password;
@@ -117,11 +118,11 @@ public class Huesped {
         this.reservas = reservas;
     }
 
-    public LocalDateTime getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

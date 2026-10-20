@@ -16,27 +16,27 @@
         </head>
 
         <body>
-            <jsp:include page="componentes/nav.jsp">
-                <!--<jsp:param name="nombre" value="Carlos" />-->
-            </jsp:include>
+            <jsp:include page="componentes/nav.jsp"/>
+                <%--<jsp:param name="nombre" value="Carlos" />--%>
+            <%--</jsp:include>--%>
 
 
  <div class="container">
         <div class="row">
             <div class="col-lg-4">
 
-                <form class="d-flex g-2" action="habitaciones?accion=guarda" method="post">
+                <form class="d-flex g-2 flex-column" action="habitaciones?accion=guarda" method="post">
 
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="numeroHabitacion" placeholder="03">
+                        <input type="number" class="form-control" id="numeroHabitacion" placeholder="03" name="numero_habitacion">
                         <label for="numeroHabitacion">numero habitacion</label>
                     </div>
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="capacidad" placeholder="3">
-                        <label for="capacidad">campacidad</label>
+                        <input type="number" class="form-control" id="capacidad" placeholder="3" name="capacidad">
+                        <label for="capacidad">capacidad</label>
                     </div>
                     <div class="form-floating">
-                        <select class="form-select" id="estado" aria-label="Floating label select example">
+                        <select class="form-select" id="estado" aria-label="Floating label select example" name = "estado">
                             <option selected>agregue un estado</option>
                             <option value="disponible">disponible</option>
                             <option value="ocupada">ocupada</option>
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="form-floating">
-                        <input type="number" step="0.00" class="form-control" id="precio" placeholder="1500.00">
+                        <input type="number" step="0.00" class="form-control" id="precio" placeholder="1500.00" name = "precio">
                         <label for="precio"><i class="bi bi-cash-stack p-2"></i>precio</label>
                     </div>
                     <button class="btn btn-outline-success w-100">Registrar habitacion</button>
