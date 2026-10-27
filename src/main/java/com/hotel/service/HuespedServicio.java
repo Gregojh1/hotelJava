@@ -5,13 +5,14 @@ import java.util.List;
 import com.hotel.persistence.CrudHuesped;
 import com.hotel.persistence.entity.Habitacion;
 import com.hotel.persistence.entity.Huesped;
+import com.hotel.util.jpaUtil;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
 public class HuespedServicio {
-        private EntityManager manager = Persistence.createEntityManagerFactory("application").createEntityManager();
+        private EntityManager manager = jpaUtil.getEntityManager();
 
         private CrudHuesped repository ;
 

@@ -31,6 +31,7 @@ public class Empleado {
     private LocalDateTime fechaNacimiento;
     private String password;
     private String rol;
+    @Column(name = "eliminado")
     private Boolean delete;
 
     @OneToMany(mappedBy = "empleado", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)

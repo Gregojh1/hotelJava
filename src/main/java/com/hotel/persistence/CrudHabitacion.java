@@ -20,19 +20,20 @@ public class CrudHabitacion extends Crud<Habitacion, Short> {
 
     @Override
     public void deleteE(Short id) {
-        // TODO Auto-generated method stub
-        super.deleteE(id);
+        Habitacion habitacionBD= getById(id);
+        habitacionBD.setEstado("remove");
     }
 
     @Override
     public List<Habitacion> getAll() {
         // TODO Auto-generated method stub
-         return manager.createQuery("SELECT h FROM Habitacion h", Habitacion.class).getResultList();
+         return manager.createQuery("SELECT h FROM Habitacion h WHERE h.estado != 'remove'", Habitacion.class).getResultList();
     }
 
     @Override
     public void save(Habitacion entity) {
         try {
+             System.out.println("### paso por el repositorio guardar");
              manager.persist(entity);
         } catch (Exception e) {
             throw new RuntimeException("Error al guardar", e);

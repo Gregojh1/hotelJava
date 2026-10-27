@@ -12,7 +12,7 @@ import jakarta.persistence.Persistence;
 
 public class HabitacionServicio {
 
-    private EntityManager manager = Persistence.createEntityManagerFactory("application").createEntityManager();
+    private EntityManager manager = jpaUtil.getEntityManager();
     private EntityTransaction transaction;
 
     private CrudHabitacion repository;
@@ -23,6 +23,7 @@ public class HabitacionServicio {
     }
 
     public void saveHabitaciones(Habitacion habitacion) {
+        System.out.println("### paso por aqui servicio guardar");
         transaction = manager.getTransaction();
         transaction.begin();
         repository.save(habitacion);
@@ -30,10 +31,18 @@ public class HabitacionServicio {
         
     }
 
+    public void deliteById(Short numberHabitacion){
+        transaction = manager.getTransaction();
+        transaction.begin();
+        repository.deleteE(numberHabitacion);
+        transaction.commit();
+    }
+
 
     
     public void updateHabitaciones(Habitacion habitacion) {
         transaction = manager.getTransaction();
+        transaction.begin();
         Habitacion habitacionBD = getById(habitacion.getNumeroHabitacion());
         if (habitacionBD == null) {
             throw new RuntimeException("habitacion no encontrada por el id: " + habitacion.getNumeroHabitacion());
@@ -50,7 +59,9 @@ public class HabitacionServicio {
     }
 
     public Habitacion getById(Short id){
+        
         return repository.getById(id);
+       
 
     }
 

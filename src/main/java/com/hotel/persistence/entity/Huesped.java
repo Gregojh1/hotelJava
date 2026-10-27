@@ -30,6 +30,7 @@ public class Huesped {
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
     private String rol;
+     @Column(name = "eliminado")
     private Boolean delete;
     private String password;
     @OneToMany(mappedBy = "huesped", fetch = FetchType.LAZY)

@@ -12,7 +12,7 @@
                         <a class="nav-link" aria-current="page" href="#">Reserva</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Habitaciones</a>
+                        <a class="nav-link" href="/demo/habitaciones">Habitaciones</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="huesped.jsp">Huespedes</a>
