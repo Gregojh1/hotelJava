@@ -66,6 +66,11 @@ public class HuespedServicio {
         return repository.getAll();
     }
 
+    public void deleteHuesped(int id){
+        repository.deleteE(id);
+
+    }
+
 
     
 }

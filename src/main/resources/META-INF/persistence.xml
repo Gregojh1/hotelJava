@@ -17,13 +17,13 @@
         <properties>
             <!-- que idioma va a hablar hibernate de base de datos -->
             <property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/bd_hotel"/>
+            <property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/HOTEL"/>
             <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="root"/>
+            <property name="hibernate.connection.password" value="1234"/>
 
             <!-- Configuración de Hibernate -->
             
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="validate" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="hibernate.highlight_sql" value="true" />

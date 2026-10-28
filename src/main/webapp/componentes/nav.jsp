@@ -15,7 +15,7 @@
                         <a class="nav-link" href="/demo/habitaciones">Habitaciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="huesped.jsp">Huespedes</a>
+                        <a class="nav-link" href="huesped">Huespedes</a>
                     </li>
                 </ul>
 

@@ -18,9 +18,27 @@ public class CrudHuesped extends Crud<Huesped, Integer> {
 
     @Override
     public void deleteE(Integer id) {
-        // TODO Auto-generated method stub
-        super.deleteE(id);
+
+        try {
+            manager.getTransaction().begin();
+            Huesped huespedBd = manager.find(Huesped.class, id);
+            if (huespedBd != null) {
+                huespedBd.setDelete(true);
+                manager.merge(huespedBd);
+            }
+
+            manager.getTransaction().commit();
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+            throw new RuntimeException("error al borrar el objero" + e.getMessage());
+        } finally {
+            manager.close();
+
+        }
+
     }
+
+    
 
     @Override
     public List<Huesped> getAll() {
@@ -45,14 +63,14 @@ public class CrudHuesped extends Crud<Huesped, Integer> {
 
     }
 
-        public void update(Huesped entity) {
+    public void update(Huesped entity) {
         try {
             manager.merge(entity);
         } catch (Exception e) {
-           manager.getTransaction().rollback();
+            manager.getTransaction().rollback();
             throw new RuntimeException("Error al actualizar", e);
-        } 
-        
+        }
+
     }
 
 }

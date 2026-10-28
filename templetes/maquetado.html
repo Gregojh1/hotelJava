@@ -18,80 +18,72 @@
         <body>
             <jsp:include page="componentes/nav.jsp" />
 
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">apellido</th>
+                            <th scope="col">eliminado</th>
+                            <th scope="col">email</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">fecha_nacimiento</th>
+                            <th scope="col">numero_documento</th>
+                            <th scope="col">tipo_documento</th>
+                            <th scope="col">rol</th>
+                            <th scope="col">password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${huespedes}" var="hu">
+                            <tr>
+                                <td class="text-center">
+                                    <input type="radio" name="id" value="${hu.id}" required>
 
-            <c:if test="${mensaje} != null">
-                <div class="alert alert-success show fade">${msm}</div>
-            </c:if>
+                                <th>${hu.id}</th>
+                                <td>${hu.apellido}</td>
+                                <td>${hu.delete}</td>
+                                <td>${hu.email}</td>
+                                <td>${hu.nombre}</td>
+                                <td>${hu.fechaNacimiento}</td>
+                                <td>${hu.tipoDocumento}</td>
+                                <td>${hu.numeroDocumento}</td>
+                                <td>${hu.rol}</td>
+                                <td>${hu.password}</td>
 
 
-            <div class="container">
-                <form action="huesped?accion=guarda" class="d-flex g-2 flex-column" method="post">
-                    <div class="form-floating mb-3">
 
-                        <input type="text" class="form-control" id="namehuesped" placeholder="juan" name="nombre">
-                        <label for="namehuesped" class="form-label">nombre</label>
-                    </div>
-                    <div class="form-floating mb-3">
+                            </tr>
+                        </c:forEach>
+                    </tbody>
 
-                        <input type="text" class="form-control" id="apellidoHuesped" placeholder="ramirez"
-                            name="apellido">
-                        <label for="apellidoHuesped" class="form-label">apellido</label>
-                    </div>
-                    <div class="form-floating mb-3">
 
-                        <input type="email" class="form-control" id="email" placeholder="juan@gmail.com" name="email">
-                        <label for="email" class="form-label">email</label>
+            </div>
 
-                    </div>
-                    <div class="form-floating mb-3">
+            <div class="d-flex justify-content-end gap-2 mt-3 mb-5">
 
-                        <input type="number" class="form-control" id="numero_documento" placeholder="95683992"
-                            name="numero_documento">
-                        <label for="numero_documento" class="form-label">numero de documento</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="tipoDocumento" name="tipo_de_documento"
-                            aria-label="Floating label select example">
-                            <option selected>selecione un rol</option>
-                            <option value="DNI">DNI</option>
-                            <option value="PASSAPORT">PASSAPORT</option>
-                            <option value="CEDULA">CEDULA</option>
-                        </select>
-                        <label for="tipoDocumento">tipo_documento</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select" name="rol" id="rolhuesped"
-                            aria-label="Floating label select example">
-                            <option selected>selecione un rol</option>
-                            <option value="ADMIN">ADMIN</option>
-                            <option value="USER">USER</option>
-                        </select>
-                        <label for="rolhuesped">rol</label>
-                    </div>
-                    <div class="form-floating mb-3">
+                <td class="d-flex gap-2 justify-content-center">
 
-                        <input type="text" class="form-control" id="passwordhuesped" placeholder="Mor*2021"
-                            name="password">
-                        <label for="passwordhuesped" class="form-label">password</label>
-                    </div>
-                        <div class="form-floating mb-3">
+                    <%-- FORMULARIO ACTUALIZAR --%>
 
-                            <input type="date" class="form-control" id="nacimientohuesped" placeholder="08/06/1997"
-                                name="fecha_nacimiento">
-                            <label for="nacimientohuesped" class="form-label">Fecha de nacimiento</label>
-                        </div>
+                        <form class="d-inline" action="huespedes?accion=update&id=${hu.id}" method="post">
+                            <button class="btn btn-warning" type="submit"><i class="bi bi-arrow-clockwise"></i></button>
+                        </form>
 
-                        <div class="container">
-                                <button type="submit" class="btn btn-outline-primary d-block w-100">Registrar</button>
-                        </div>
-                </form>
+                        <%-- FORMULARIO BORRAR --%>
 
+                            <form class="d-inline" action="huespedes?accion=delete&id=${hu.id}" method="post">
+                                <button class="btn btn-danger" type="submit">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+
+                </td>
 
             </div>
 
 
 
-            </div>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
                 crossorigin="anonymous"></script>

@@ -75,6 +75,8 @@ public class HabitacionesServlet extends HttpServlet {
 
         }
 
+        resp.sendRedirect("habitaciones");
+
     }
 
     private List<Habitacion> getAll() {
